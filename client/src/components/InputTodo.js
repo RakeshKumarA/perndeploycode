@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from 'react';
 
 const InputTodo = () => {
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState('');
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -12,13 +12,13 @@ const InputTodo = () => {
       //remember this heroku app is just our server serving the build static content and also holding the restful api
 
       //https://pern-todo-app-demo.herokuapp.com/todos
-      const response = await fetch("/todos", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/todos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
 
-      window.location = "/";
+      window.location = '/';
     } catch (err) {
       console.error(err.message);
     }

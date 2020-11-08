@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState } from 'react';
 
 const EditTodo = ({ todo }) => {
   //editText function
@@ -9,13 +9,13 @@ const EditTodo = ({ todo }) => {
 
       //proxy
 
-      const res = await fetch(`/todos/${id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch(`/api/todos/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       });
 
-      window.location = "/";
+      window.location = '/';
     } catch (err) {
       console.error(err.message);
     }

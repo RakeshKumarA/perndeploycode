@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from "react";
-import EditTodo from "./EditTodo";
+import React, { Fragment, useState, useEffect } from 'react';
+import EditTodo from './EditTodo';
 
 const ListTodos = () => {
   const [todos, setTodos] = useState([]);
@@ -8,8 +8,8 @@ const ListTodos = () => {
 
   async function deleteTodo(id) {
     try {
-      const res = await fetch(`/todos/${id}`, {
-        method: "DELETE",
+      const res = await fetch(`/api/todos/${id}`, {
+        method: 'DELETE',
       });
 
       setTodos(todos.filter((todo) => todo.todo_id !== id));
@@ -19,7 +19,7 @@ const ListTodos = () => {
   }
 
   async function getTodos() {
-    const res = await fetch("/todos");
+    const res = await fetch('/api/todos');
 
     const todoArray = await res.json();
 
@@ -34,7 +34,7 @@ const ListTodos = () => {
 
   return (
     <Fragment>
-      {" "}
+      {' '}
       <table class="table mt-5">
         <thead>
           <tr>
