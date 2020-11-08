@@ -28,7 +28,7 @@ console.log(path.join(__dirname, 'client/build'));
 
 //get all Todos
 
-app.get('/api/todos', async (req, res) => {
+app.get('/todos', async (req, res) => {
   try {
     const allTodos = await pool.query('SELECT * FROM todo');
 
@@ -40,7 +40,7 @@ app.get('/api/todos', async (req, res) => {
 
 //get a todo
 
-app.get('/api/todos/:id', async (req, res) => {
+app.get('/todos/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const todo = await pool.query('SELECT * FROM todo WHERE todo_id = $1', [
